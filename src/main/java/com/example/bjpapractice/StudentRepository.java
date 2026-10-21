@@ -1,8 +1,37 @@
 package com.example.bjpapractice;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 public interface StudentRepository extends JpaRepository<Student, Integer>{
-    
+    List<Student> findByName(String name);
+    List<Student> findByAge(Integer age);
+    List<Student> findByNameAndAge(String name, Integer age);
+    List<Student> findByAgeGreaterThan(Integer age);
+    List<Student> findByAgeLessThan(Integer age);
+    List<Student> findByNameContaining(String text);
+    List<Student> findByNameStartingWith(char ch);
+    Page<Student> findByNameContaining(String text, Pageable pageable);
 }
+//    Student student = new Student();
+//    public String findByName(String name){
+//        for (Student student: )
+//        if (student.getName() == name){
+//            return name;
+//        }
+//        return "Student not found";
+//    }
+//    public Student fndByNameAndAge(String name, int age){
+//        
+//    }
+//    public String findByName(String name){
+//        return 
+//    }
+//    public int findByAge(int age){
+//        
+//    }
+    
+//}
 
 
 //package com.example.bjpapractice;
